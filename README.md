@@ -1,6 +1,8 @@
-# movie streaming challenge
+# next movie streaming 
 
-Projeto movie streaming challenge criado em React.
+Este projeto é um site de streaming de filmes desenvolvido com Next.js. 
+A estilização foi feita com Tailwind CSS.
+O site consome dados de uma API para exibir uma lista de filmes e suas informações. 
 
 ## Iniciando Projeto
 

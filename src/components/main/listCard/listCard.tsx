@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { CardMovie } from "../cardMovie";
 import { CardSwitcher } from "../cardSwitcher";
 import { IoIosArrowForward } from "react-icons/io";
-import { api, apiPopularMovies, apiRatedMovies } from "@/services/api";
+import { apiPopularMovies, apiRatedMovies } from "@/services/api";
 
 export function ListCard() {
   const [popularmovies, setPopularMovies] = useState<any[]>([]);
@@ -39,7 +39,7 @@ export function ListCard() {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       {popularmovies.slice(0, visibleSwitcher).map((movie, key) => (
         <CardSwitcher
           key={key}
@@ -52,36 +52,40 @@ export function ListCard() {
         />
       ))}
 
-      <div className="text-white flex flex-row items-center gap-1 py-8 text-xl ">
-        <h3>Top Popular Movies |</h3>
+      <div className="flex flex-col bg-gray-800 p-4 gap-4 rounded">
+        <div className="text-white flex flex-row items-center gap-1 text-xl ml-6 ">
+          <h3>Top Popular Movies |</h3>
 
-        <a className="no-underline text-white" href="/">
-          See More
-        </a>
+          <a className="no-underline text-white" href="/">
+            See More
+          </a>
 
-        <IoIosArrowForward />
+          <IoIosArrowForward />
+        </div>
+
+        <div className="flex flex-row gap-6 justify-center">
+          {popularmovies.slice(0, visible).map((movie, key) => (
+            <CardMovie key={key} name={movie.title} image={movie.poster_path} />
+          ))}
+        </div>
       </div>
 
-      <div className="flex flex-row gap-6">
-        {popularmovies.slice(0, visible).map((movie, key) => (
-          <CardMovie key={key} name={movie.title} image={movie.poster_path} />
-        ))}
-      </div>
+      <div className="flex flex-col bg-gray-800 p-4 gap-4 rounded">
+        <div className="text-white flex flex-row items-center gap-1 text-xl ml-6 ">
+          <h3>Top Rated Movies |</h3>
 
-      <div className="text-white flex flex-row items-center gap-1 py-8 text-xl ">
-        <h3>Top Rated Movies |</h3>
+          <a className="no-underline text-white" href="/">
+            See More
+          </a>
 
-        <a className="no-underline text-white" href="/">
-          See More
-        </a>
+          <IoIosArrowForward />
+        </div>
 
-        <IoIosArrowForward />
-      </div>
-
-      <div className="flex flex-row gap-6">
-      {ratedmovies.slice(0, visible).map((movie, key) => (
-        <CardMovie key={key} name={movie.title} image={movie.poster_path} />
-        ))}
+        <div className="flex flex-row gap-6">
+          {ratedmovies.slice(0, visible).map((movie, key) => (
+            <CardMovie key={key} name={movie.title} image={movie.poster_path} />
+          ))}
+        </div>
       </div>
     </div>
   );

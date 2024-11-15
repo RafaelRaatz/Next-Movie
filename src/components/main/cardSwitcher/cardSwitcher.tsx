@@ -21,8 +21,12 @@ export function CardSwitcher({
 }: IMovies) {
   const image_path = "https://image.tmdb.org/t/p/w500";
   return (
-    <div className="flex mb-10 gap-7 rounded-xl h-[28rem] ">
-      <img src={`${image_path}${image}`} alt="image" />
+    <div className="flex gap-7 rounded-xl h-[32rem] bg-gray-800 p-2 items-center justify-center ">
+      <img
+        src={`${image_path}${image}`}
+        alt="image"
+        className="rounded-md h-[28rem]"
+      />
       <div className=" flex flex-col mt-10 ml-10 text-white w-[40rem] ">
         <h1 className="text-5xl mb-6">{name} </h1>
         <div className="flex gap-3 mb-8 items-center">
